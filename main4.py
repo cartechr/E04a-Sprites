@@ -17,9 +17,30 @@ class MyGame(arcade.Window):
         os.chdir(file_path)
         arcade.set_background_color(open_color.white)
 
+        self.game_list = arcade.SpriteList()
 
     def setup(self):
-        pass        
+        gameiconss = ['arrowDown', 'arrowLeft', 'arrowRight', 'arrowRight', 'arrowUp', 'audioOff']
+
+        for i in range(20):
+               
+                gameicons = 'arrowDown'
+                x = (400)
+                y = (300)
+                self.game_sprite = arcade.Sprite("1x/{gameicons}.png".format(gameicons=gameicons), 0.5)
+                self.game_sprite.center_x = x
+                self.game_sprite.center_y = y
+                self.game_list.append(self.game_sprite)
+
+                gameicons = random.choice(gameiconss)
+                x = random.randint(0,800)
+                y = random.randint(0,600)
+                self.game_sprite = arcade.Sprite("1x/{gameicons}.png".format(gameicons=gameicons), 0.5)
+                self.game_sprite.center_x = x
+                self.game_sprite.center_y = y
+                self.game_list.append(self.game_sprite)
+
+
 
     def on_draw(self):
         arcade.start_render()
